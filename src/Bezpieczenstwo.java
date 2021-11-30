@@ -3,14 +3,12 @@ import java.util.List;
 public class Bezpieczenstwo {
     private KontoKlienta aktualneKonto;
     private List<KontoKlienta> listaKlientow;
-    private KontoPracownika pracownik;
     private List<KontoKlienta> listaPracownikow;
 
 
-    public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, KontoPracownika pracownik, List<KontoKlienta> listaPracownikow) {
+    public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, List<KontoKlienta> listaPracownikow) {
         this.aktualneKonto = aktualneKonto;
         this.listaKlientow = listaKlientow;
-        this.pracownik = pracownik;
         this.listaPracownikow = listaPracownikow;
     }
 
