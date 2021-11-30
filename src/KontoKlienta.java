@@ -42,11 +42,11 @@ public class KontoKlienta extends DaneOsobowe {
         karty.remove(karta);
     }
 
-    public void dodajKarte(){
+    public void dodajKarte(Karta karta){
         long nrKarty = 0;
         int CVC=0;
         Date dataWaznosci=null;
-        Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
+        //Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
         karty.add(karta);
     }
 

@@ -1,4 +1,4 @@
-public class DaneOsobowe {
+public abstract class DaneOsobowe {
     private int pesel;
     private String haslo;
     private String imie;
