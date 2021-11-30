@@ -19,7 +19,6 @@ public class KontoKlienta extends DaneOsobowe {
         this.dataUrodzenia=aktualneKonto.getDataUrodzenia();
         this.nrKonta=aktualneKonto.getNrKonta();
         this.karty=aktualneKonto.getKarty();
-
     }
 
     public String getNrDowodu() {
@@ -39,11 +38,16 @@ public class KontoKlienta extends DaneOsobowe {
     }
 
     public void usunKarte(long nrKarty, int CVC, Date dataWaznosci){
-
+        Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
+        karty.remove(karta);
     }
 
     public void dodajKarte(){
-
+        long nrKarty = 0;
+        int CVC=0;
+        Date dataWaznosci=null;
+        Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
+        karty.add(karta);
     }
 
 }

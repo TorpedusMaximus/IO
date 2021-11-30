@@ -1,36 +1,42 @@
+import java.util.List;
+
 public class Bezpieczenstwo {
     private KontoKlienta aktualneKonto;
-    private KontoKlienta noweKonto;
-    private Polaczenie polaczenie;
+    private List<KontoKlienta> listaKlientow;
+    private KontoPracownika pracownik;
+    private List<KontoKlienta> listaPracownikow;
 
 
-    public Bezpieczenstwo(KontoKlienta aktualneKonto, KontoKlienta noweKonto) {
+    public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, KontoPracownika pracownik, List<KontoKlienta> listaPracownikow) {
         this.aktualneKonto = aktualneKonto;
-        this.noweKonto = noweKonto;
+        this.listaKlientow = listaKlientow;
+        this.pracownik = pracownik;
+        this.listaPracownikow = listaPracownikow;
     }
 
-    public void proceduraBezpieczenstwa(){
+    public void proceduraBezpieczenstwa() {
         weryfikacjaZmian();
         weryfikacjaTozsamosci();
     }
 
-    private boolean weryfikacjaZmian(){
-        boolean ok=true;
+    private boolean weryfikacjaZmian() {
+        boolean ok = true;
         return ok;
     }
 
-    private boolean weryfikacjaTozsamosci(){
+    private boolean weryfikacjaTozsamosci() {
         int pesel = 0;
         String hasloKlienta = null;
         int idPracownika = 0;
-        String hasloPracownika=null;
+        String hasloPracownika = null;
 
-        if(pesel!=aktualneKonto.getPesel())return false;
-        if(hasloKlienta!=aktualneKonto.getHaslo())return false;
-        if(!polaczenie.potwierdzDanePracownika(idPracownika,hasloPracownika))return false;
+        if (pesel != aktualneKonto.getPesel()) return false;
+        if (hasloKlienta != aktualneKonto.getHaslo()) return false;
         return true;
     }
 
 
-
+    public List<KontoKlienta> getListaKlientow() {
+        return listaKlientow;
+    }
 }
