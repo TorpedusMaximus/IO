@@ -3,14 +3,13 @@ import javax.swing.*;
 public class Aplikacja {
 
     private JPanel panel;
-    private JTable table1;
-    private JTable table2;
-    private JButton button1;
+    private JButton wybor;
+    private JButton karty;
+    private JButton pieniadze;
+    private JButton konto;
 
     public static void main(String[] args) {
 
+
     }
-
-
-
 }
