@@ -48,7 +48,6 @@ public class KontoKlienta extends DaneOsobowe {
 
     public void dodajKarte(long nrKarty){
         int CVC= (int) ((10000*Math.random())%1000);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date dataWaznosci = new Date();
         dataWaznosci.setYear(dataWaznosci.getYear()+5);
         Karta karta=new Karta(nrKarty,CVC,dataWaznosci);

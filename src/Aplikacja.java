@@ -10,8 +10,8 @@ public class Aplikacja {
     private JButton karty;
     private JButton pieniadze;
     private JButton konto;
-    private JButton button2;
-    private JButton button3;
+    private JButton wybraniePieniedzy;
+    private JButton przelew;
     private JButton button4;
     private JButton button5;
     private JButton button6;
@@ -21,7 +21,7 @@ public class Aplikacja {
     private JButton button1;
     private JButton button7;
     private JButton button8;
-    private JButton button9;
+    private JButton dodajPieniadze;
 
     public Aplikacja() {
         wybor.addActionListener(new ActionListener() {
