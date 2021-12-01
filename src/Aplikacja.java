@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class Aplikacja {
 
@@ -50,7 +51,12 @@ public class Aplikacja {
     }
 
     public static void main(String[] args) {
+        Date data=new Date();
 
+        KontoKlienta klient=new KontoKlienta(207298,"aaaa","KAcper","m","g",data,123);
+        long karta=1;
+        klient.dodajKarte(karta);
+        System.out.println(klient.getKarty().toString());
 
     }
 }

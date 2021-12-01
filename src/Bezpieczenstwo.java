@@ -1,9 +1,10 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bezpieczenstwo {
     private KontoKlienta aktualneKonto;
-    private List<KontoKlienta> listaKlientow;
-    private List<KontoKlienta> listaPracownikow;
+    private List<KontoKlienta> listaKlientow=new ArrayList<>();
+    private List<KontoKlienta> listaPracownikow=new ArrayList<>();
 
 
     public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, List<KontoKlienta> listaPracownikow) {

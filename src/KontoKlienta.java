@@ -1,3 +1,7 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -5,7 +9,7 @@ public class KontoKlienta extends DaneOsobowe {
     private final String nrDowodu;
     private final int nrKonta;
     private final Date dataUrodzenia;
-    private List<Karta> karty;
+    private List<Karta> karty=new ArrayList();
 
     public KontoKlienta(int pesel, String haslo, String imie, String nazwisko, String nrDowodu, Date dataUrodzenia,int nrKonta) {
         super(pesel, haslo, imie, nazwisko);
@@ -42,11 +46,12 @@ public class KontoKlienta extends DaneOsobowe {
         karty.remove(karta);
     }
 
-    public void dodajKarte(Karta karta){
-        long nrKarty = 0;
-        int CVC=0;
-        Date dataWaznosci=null;
-        //Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
+    public void dodajKarte(long nrKarty){
+        int CVC= (int) ((10000*Math.random())%1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date dataWaznosci = new Date();
+        dataWaznosci.setYear(dataWaznosci.getYear()+5);
+        Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
         karty.add(karta);
     }
 
