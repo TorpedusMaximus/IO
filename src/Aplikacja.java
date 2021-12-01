@@ -1,26 +1,31 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Aplikacja {
+    private KontoKlienta aktualneKonto;
+    private List<KontoKlienta> listaKlientow = new ArrayList<>();
+    private List<KontoPracownika> listaPracownikow = new ArrayList<>();
 
     private JPanel panel;
     private JButton wybor;
     private JButton karty;
     private JButton pieniadze;
-    private JButton konto;
+    private JButton dodajKonto;
     private JButton button2;
     private JButton button3;
-    private JButton button4;
-    private JButton button5;
+    private JButton dodajKarte;
+    private JButton usunKarte;
     private JButton button6;
     private JLabel pieniadzeLabel;
     private JLabel kontoLabel;
     private JLabel kartyLabel;
-    private JButton button1;
-    private JButton button7;
-    private JButton button8;
+    private JButton zablokujKarte;
+    private JButton odblokujKarte;
+    private JButton usunKonto;
     private JButton button9;
 
     public Aplikacja() {
@@ -30,7 +35,7 @@ public class Aplikacja {
 
             }
         });
-        konto.addActionListener(new ActionListener() {
+        dodajKonto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -59,4 +64,21 @@ public class Aplikacja {
         System.out.println(klient.getKarty().toString());
 
     }
+
+    void dodajZmiany(){
+        Bezpieczenstwo zapis=new Bezpieczenstwo(aktualneKonto,listaKlientow,listaPracownikow);
+        zapis.proceduraBezpieczenstwa();
+        listaKlientow=zapis.getListaKlientow();
+    }
+
+    void wybierzKlienta(){
+        int nrKonta=0;
+        for (KontoKlienta kontoKlienta : listaKlientow) {
+            if (kontoKlienta.getNrKonta() == nrKonta) {
+                aktualneKonto = kontoKlienta;
+                break;
+            }
+        }
+    }
+
 }

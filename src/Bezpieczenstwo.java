@@ -2,36 +2,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bezpieczenstwo {
-    private KontoKlienta aktualneKonto;
-    private List<KontoKlienta> listaKlientow=new ArrayList<>();
-    private List<KontoKlienta> listaPracownikow=new ArrayList<>();
+    private final KontoKlienta aktualneKonto;
+    private List<KontoKlienta> listaKlientow = new ArrayList<>();
+    private List<KontoPracownika> listaPracownikow = new ArrayList<>();
 
 
-    public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, List<KontoKlienta> listaPracownikow) {
+    public Bezpieczenstwo(KontoKlienta aktualneKonto, List<KontoKlienta> listaKlientow, List<KontoPracownika> listaPracownikow) {
         this.aktualneKonto = aktualneKonto;
         this.listaKlientow = listaKlientow;
         this.listaPracownikow = listaPracownikow;
     }
 
     public void proceduraBezpieczenstwa() {
-        weryfikacjaZmian();
-        weryfikacjaTozsamosci();
+        if(!weryfikacjaZmian()){
+            //bład
+            return;
+        }
+        if(!weryfikacjaTozsamosci()){
+            //bład
+            return;
+        }
+        for(int i=0;i<listaKlientow.size();i++){
+            if(listaKlientow.get(i).getNrKonta()==aktualneKonto.getNrKonta()){//dodanie zmian
+                listaKlientow.remove(i);
+                listaKlientow.add(aktualneKonto);
+                break;
+            }
+        }
     }
 
     private boolean weryfikacjaZmian() {
-        boolean ok = true;
+        boolean ok = true;   //pobierane z okienka
         return ok;
     }
 
     private boolean weryfikacjaTozsamosci() {
-        int pesel = 0;
+        int nrKonta = 0;//pobierane z okienka
         String hasloKlienta = null;
         int idPracownika = 0;
         String hasloPracownika = null;
 
-        if (pesel != aktualneKonto.getPesel()) return false;
+        if (nrKonta != aktualneKonto.getNrKonta()) return false;//testy tożsamosci
         if (hasloKlienta != aktualneKonto.getHaslo()) return false;
-        return true;
+
+        for (KontoPracownika kontoPracownika : listaPracownikow) {
+            if (kontoPracownika.getIdPracownika() == idPracownika) {
+                return kontoPracownika.getHaslo() == hasloPracownika;
+            }
+        }
+
+        return false;
     }
 
 
