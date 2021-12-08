@@ -1,19 +1,19 @@
 import java.util.Date;
 
 public class Karta {
-    private final long nrKarty;
+    private final String nrKarty;
     private final int CVC;
     private final Date dataWaznosci;
     private boolean stan ;
 
-    public Karta(long nrKarty, int CVC, Date dataWaznosci) {
+    public Karta(String nrKarty, int CVC, Date dataWaznosci) {
         this.nrKarty = nrKarty;
         this.CVC = CVC;
         this.dataWaznosci = dataWaznosci;
         this.stan=true;
     }
 
-    public long getNrKarty() {
+    public String getNrKarty() {
         return nrKarty;
     }
 

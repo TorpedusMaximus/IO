@@ -35,7 +35,10 @@ public class Aplikacja extends JFrame {
         wybor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int nrKonta = -1;
 
+
+                wybierzKlienta(nrKonta);
             }
         });
         dodajKonto.addActionListener(new ActionListener() {
@@ -185,10 +188,10 @@ public class Aplikacja extends JFrame {
 
     }
 
-    void dodajZmiany(){
-        Bezpieczenstwo zapis=new Bezpieczenstwo(aktualneKonto,listaKlientow,listaPracownikow);
+    void dodajZmiany() {
+        Bezpieczenstwo zapis = new Bezpieczenstwo(aktualneKonto, listaKlientow, listaPracownikow);
         zapis.proceduraBezpieczenstwa();
-        listaKlientow=zapis.getListaKlientow();
+        listaKlientow = zapis.getListaKlientow();
     }
 
     void wybierzKlienta(int nrKonta) {
@@ -200,4 +203,47 @@ public class Aplikacja extends JFrame {
         }
     }
 
+    boolean sprawdzCzyWybraneKonto() {
+        return aktualneKonto == null;
+    }
+
+    int wyborKarty(String podanyNrKarty) {
+        int indeksKarty = -1;
+
+        for (int i = 0; i < aktualneKonto.getKarty().size(); i++) {
+            if (aktualneKonto.getKarty().get(i).getNrKarty() == podanyNrKarty)
+                indeksKarty = i;
+        }
+        return indeksKarty;
+    }
+
+    public String losujNumerKarty() {
+        String nrKarty="";
+
+        for (int i = 0; i < 4; i++) {
+            String temp=null;
+            int kawalek = (int)(Math.random() * 9999);
+            if (kawalek < 1000){
+                temp += "0";
+            }if(kawalek < 100){
+                temp += "0";
+            }if(kawalek < 10){
+                temp += "0";
+            }
+            temp+=Integer.toString(kawalek);
+
+            nrKarty+=temp;
+        }
+
+        for(int i=0; i<listaKlientow.size();i++){
+            for(int ii=0;ii<listaKlientow.get(i).getKarty().size();ii++){
+                if(listaKlientow.get(i).getKarty().get(ii).getNrKarty()==nrKarty){
+                    nrKarty=losujNumerKarty();
+                    return nrKarty;
+                }
+            }
+        }
+
+        return nrKarty;
+    }
 }
