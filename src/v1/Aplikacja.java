@@ -1,6 +1,8 @@
 package v1;
 
 import v2.Bezpieczenstwo;
+import v2.KontoKlienta;
+import v2.KontoPracownika;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

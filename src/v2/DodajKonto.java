@@ -1,7 +1,5 @@
 package v2;
 
-import v1.KontoKlienta;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;

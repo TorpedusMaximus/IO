@@ -1,4 +1,4 @@
-package v1;
+package v2;
 
 public class KontoPracownika extends DaneOsobowe {
     private final int idPracownika;

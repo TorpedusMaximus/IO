@@ -1,8 +1,5 @@
 package v2;
 
-import v1.KontoKlienta;
-import v1.KontoPracownika;
-
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
