@@ -3,6 +3,7 @@ package v2;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class ZmienDane extends JPanel {
     JTextField wpiszImie = new JTextField(30);
@@ -71,5 +72,13 @@ public class ZmienDane extends JPanel {
         wpiszHaslo.setText("");
         wpiszImie.setText("");
         wpiszNazwisko.setText("");
+    }
+
+    public KontoKlienta zmienDane(KontoKlienta aktualneKonto) {
+        aktualneKonto.setHaslo(Arrays.toString(wpiszHaslo.getPassword()));
+        aktualneKonto.setImie(wpiszImie.getText());
+        aktualneKonto.setNazwisko(wpiszNazwisko.getText());
+        aktualneKonto.setNrDowodu(wpiszDowod.getText());
+        return aktualneKonto;
     }
 }

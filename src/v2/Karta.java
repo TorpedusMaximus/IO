@@ -15,6 +15,20 @@ public class Karta {
         this.stan=true;
     }
 
+    public Karta(Karta karta){
+        this.nrKarty = karta.getNrKarty();
+        this.CVC = karta.getCVC();
+        this.dataWaznosci = karta.getDataWaznosci();
+        this.stan=karta.getStan();
+    }
+
+    public Karta(String nrKarty, int cvc, Date dataWaznosci, boolean stan) {
+        this.nrKarty = nrKarty;
+        this.CVC = cvc;
+        this.dataWaznosci = dataWaznosci;
+        this.stan=stan;
+    }
+
     public String getNrKarty() {
         return nrKarty;
     }
