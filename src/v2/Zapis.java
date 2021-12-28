@@ -42,6 +42,7 @@ public class Zapis {
         klient.put("Stan", konto.getStan());
         klient.put("Pieniadze", konto.getPieniadze());
         klient.put("Haslo", konto.getHaslo());
+
         for (Karta karta : konto.getKarty()) {
             JSONObject kartaJSON = new JSONObject();
             kartaJSON.put("NrKarty", karta.getNrKarty());

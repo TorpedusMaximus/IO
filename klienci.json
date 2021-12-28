@@ -1,25 +1,26 @@
-[{
-    "NrKonta": 123,
-    "Imie": "xD",
-    "PESEL": 123,
-    "NrDowodu": "123",
-    "Pieniadze": 0,
-    "Stan": true,
-    "Haslo": "123",
-    "Nazwisko": "dX",
-    "Karty": [
-        {
-            "NrKarty": "123",
-            "CVC": 123,
-            "DataWaznosci": "26.12.2021",
-            "Stan": true
-        },
-        {
-            "NrKarty": "7397587356885418",
-            "CVC": 135,
-            "DataWaznosci": "26.12.2026",
-            "Stan": true
-        }
-    ],
-    "DataUrodzenia": "01.09.1939"
-}]
+[
+    {
+        "NrKonta": 2,
+        "Imie": "Kajetan",
+        "PESEL": 252766,
+        "NrDowodu": "252766",
+        "Pieniadze": 420,
+        "Stan": true,
+        "Haslo": "IO",
+        "Nazwisko": "Wojciechowski",
+        "Karty": [],
+        "DataUrodzenia": "28.12.2021"
+    },
+    {
+        "NrKonta": 1,
+        "Imie": "Kacper",
+        "PESEL": 252724,
+        "NrDowodu": "252724",
+        "Pieniadze": 111111112,
+        "Stan": false,
+        "Haslo": "IO",
+        "Nazwisko": "Małkowski",
+        "Karty": [],
+        "DataUrodzenia": "28.12.2021"
+    }
+]

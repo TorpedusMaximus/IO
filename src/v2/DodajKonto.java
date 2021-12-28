@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 
 public class DodajKonto extends JPanel {
@@ -102,7 +101,7 @@ public class DodajKonto extends JPanel {
         int pesel = Integer.parseInt(wpiszPesel.getText());
         String imie = wpiszImie.getText();
         String nazwisko = wpiszNazwisko.getText();
-        String haslo = Arrays.toString(wpiszHaslo.getPassword());
+        String haslo = wpiszHaslo.getPassword().toString();
         String nrDowodu = wpiszDowod.getText();
 
         String data = wpiszDataUrodzenia.getText();

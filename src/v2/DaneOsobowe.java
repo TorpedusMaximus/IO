@@ -5,7 +5,7 @@ public abstract class DaneOsobowe {
     private String haslo;
     private String imie;
     private String nazwisko;
-    private Boolean stan;
+    private boolean stan;
 
     public DaneOsobowe(int pesel, String haslo, String imie, String nazwisko) {
         this.pesel = pesel;
@@ -13,6 +13,14 @@ public abstract class DaneOsobowe {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.stan=true;
+    }
+
+    public DaneOsobowe(int pesel, String haslo, String imie, String nazwisko, boolean stan) {
+        this.pesel = pesel;
+        this.haslo = haslo;
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.stan=stan;
     }
 
 
@@ -48,8 +56,7 @@ public abstract class DaneOsobowe {
         this.nazwisko = nazwisko;
     }
 
-
-    public Boolean getStan() {
+    public boolean getStan() {
         return stan;
     }
 

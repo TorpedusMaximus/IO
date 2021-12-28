@@ -26,7 +26,15 @@ public class KontoKlienta extends DaneOsobowe {
         this.dataUrodzenia=aktualneKonto.getDataUrodzenia();
         this.nrKonta=aktualneKonto.getNrKonta();
         this.dodajPieniadze(aktualneKonto.getPieniadze());
+        setStan(aktualneKonto.getStan());
         setKarty(aktualneKonto.getKarty());
+    }
+
+    public KontoKlienta(int pesel, String haslo, String imie, String nazwisko, String nrDowodu, Date dataUrodzenia, long nrKonta, boolean stan) {
+        super(pesel, haslo, imie, nazwisko,stan);
+        this.nrDowodu=nrDowodu;
+        this.dataUrodzenia=dataUrodzenia;
+        this.nrKonta=nrKonta;
     }
 
     public void setKarty(List<Karta> listaKart){

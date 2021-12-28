@@ -1,8 +1,18 @@
-[{
-    "Imie": "xD",
-    "PESEL": 123,
-    "Stan": true,
-    "Haslo": "123",
-    "ID": 123,
-    "Nazwisko": "Dx"
-}]
+[
+    {
+        "Imie": "Kacper",
+        "PESEL": 252724,
+        "Stan": true,
+        "Haslo": "IO",
+        "ID": 1,
+        "Nazwisko": "Małkowski"
+    },
+    {
+        "Imie": "Kajetan",
+        "PESEL": 252766,
+        "Stan": true,
+        "Haslo": "IO",
+        "ID": 2,
+        "Nazwisko": "Wojciechowski"
+    }
+]

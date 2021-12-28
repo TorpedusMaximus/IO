@@ -53,9 +53,9 @@ public class Odczyt {
             long nrKonta = klient.getLong("NrKonta");
             String imie = klient.getString("Imie");
             int pesel = klient.getInt("PESEL");
-            String nrDowodu=klient.getString("NrDowodu");
+            String nrDowodu = klient.getString("NrDowodu");
             long pieniadze = klient.getLong("Pieniadze");
-            boolean stan = klient.getBoolean("Stan");
+            boolean stan =klient.getBoolean("Stan");
             String haslo = klient.getString("Haslo");
             String nazwisko = klient.getString("Nazwisko");
             String data = klient.getString("DataUrodzenia");
@@ -68,9 +68,9 @@ public class Odczyt {
                 e.printStackTrace();
             }
 
-            List<Karta> karty=new ArrayList();
+            List<Karta> karty = new ArrayList();
             JSONArray listaKart = klient.getJSONArray("Karty");
-            for(int ii = 0 ; i<listaKart.length();i++){
+            for (int ii = 0; i < listaKart.length(); i++) {
                 JSONObject kartaJSON = listaKart.getJSONObject(ii);
                 String nrKarty = kartaJSON.getString("NrKarty");
                 int CVC = kartaJSON.getInt("CVC");
@@ -82,12 +82,11 @@ public class Odczyt {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Karta karta = new Karta(nrKarty,CVC,dataWaznosci,stan);
+                Karta karta = new Karta(nrKarty, CVC, dataWaznosci, stan);
                 karty.add(karta);
             }
-            KontoKlienta kontoKlienta = new KontoKlienta(pesel,haslo,imie,nazwisko,nrDowodu,dataUrodzenia,nrKonta);
+            KontoKlienta kontoKlienta = new KontoKlienta(pesel, haslo, imie, nazwisko, nrDowodu, dataUrodzenia, nrKonta, stan);
             kontoKlienta.dodajPieniadze(pieniadze);
-            kontoKlienta.setStan(stan);
             kontoKlienta.setKarty(karty);
             listaKlientow.add(kontoKlienta);
         }

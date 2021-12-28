@@ -66,6 +66,9 @@ public class Aplikacja extends JFrame {
                 String nrKarty;
                 Bezpieczenstwo bezpieczenstwo;
                 boolean flaga = false;
+
+
+
                 switch (akcja) {
                     case "wybor":
                         klient = Long.parseLong(JOptionPane.showInputDialog(frame, "Podaj ID klienta", "", JOptionPane.PLAIN_MESSAGE));
@@ -109,10 +112,18 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         layout.show(getContentPane(), "zmienDane");
                         break;
                     case "usunKonto":
                         if (!kontoWybrane()) {
+                            break;
+                        }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
                             break;
                         }
                         bezpieczenstwo = new Bezpieczenstwo("usunKonto", frame, aktualneKonto, listaKlientow, listaPracownikow);
@@ -126,9 +137,17 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         long wyplac = Long.parseLong(JOptionPane.showInputDialog(frame, "Podaj kwotę wypłacaną.\nAktualny stan konta: " + aktualneKonto.getPieniadze(), "", JOptionPane.PLAIN_MESSAGE));
                         if (wyplac > aktualneKonto.getPieniadze()) {
                             JOptionPane.showMessageDialog(frame, "Brak środków na koncie", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
+                        if (wyplac <=0) {
+                            JOptionPane.showMessageDialog(frame, "Błędna kwota", "", JOptionPane.WARNING_MESSAGE);
                             break;
                         }
                         aktualneKonto.dodajPieniadze(-1 * wyplac);
@@ -140,7 +159,15 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         long wplata = Long.parseLong((String) JOptionPane.showInputDialog(frame, "Podaj kwotę wpłaty", "", JOptionPane.PLAIN_MESSAGE));
+                        if (wplata <=0) {
+                            JOptionPane.showMessageDialog(frame, "Błędna kwota", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         aktualneKonto.dodajPieniadze(wplata);
                         bezpieczenstwo = new Bezpieczenstwo("wplac", frame, aktualneKonto, listaKlientow, listaPracownikow);
                         bezpieczenstwo.proceduraBezpieczenstwa();
@@ -150,9 +177,17 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         long przelew = Long.parseLong(JOptionPane.showInputDialog(frame, "Podaj kwotę przelewu\nAktualny stan konta: " + aktualneKonto.getPieniadze(), "", JOptionPane.PLAIN_MESSAGE));
                         if (przelew > aktualneKonto.getPieniadze()) {
                             JOptionPane.showMessageDialog(frame, "Brak środków na koncie", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
+                        if (przelew <=0) {
+                            JOptionPane.showMessageDialog(frame, "Błędna kwota", "", JOptionPane.WARNING_MESSAGE);
                             break;
                         }
 
@@ -167,6 +202,10 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         aktualneKonto.dodajKarte(losujNrKarty(), frame);
                         bezpieczenstwo = new Bezpieczenstwo("dodajKarte", frame, aktualneKonto, listaKlientow, listaPracownikow);
                         bezpieczenstwo.proceduraBezpieczenstwa();
@@ -174,6 +213,10 @@ public class Aplikacja extends JFrame {
                         break;
                     case "zablokujKarte":
                         if (!kontoWybrane()) {
+                            break;
+                        }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
                             break;
                         }
                         System.out.println(aktualneKonto.getKarty().size());
@@ -206,6 +249,10 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         nrKarty = (String) JOptionPane.showInputDialog(frame, "Podaj numer karty", "", JOptionPane.PLAIN_MESSAGE);
                         for (Karta karta : aktualneKonto.getKarty()) {
                             if (Objects.equals(karta.getNrKarty(), nrKarty)) {
@@ -234,6 +281,10 @@ public class Aplikacja extends JFrame {
                         if (!kontoWybrane()) {
                             break;
                         }
+                        if(!aktualneKonto.getStan()){
+                            JOptionPane.showMessageDialog(frame, "Akcja niemożliwa. Konto zablokowane.", "", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
                         nrKarty = (String) JOptionPane.showInputDialog(frame, "Podaj numer karty", "", JOptionPane.PLAIN_MESSAGE);
                         for (Karta karta : aktualneKonto.getKarty()) {
                             if (Objects.equals(karta.getNrKarty(), nrKarty)) {
@@ -251,7 +302,7 @@ public class Aplikacja extends JFrame {
                         break;
                 }
 
-                if (!akcja.equals("usunKonto") && !akcja.equals("wyjdz")) {
+                if (!akcja.equals("usunKonto") && !akcja.equals("wyjdz") && !akcja.equals("dodajKonto")) {
                     wybierzKonto(klient);
                 }
 
