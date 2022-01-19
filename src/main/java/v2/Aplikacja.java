@@ -11,6 +11,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class Aplikacja extends JFrame {
+    long klient = 0;
+
     static Aplikacja frame;
     final CardLayout layout = new CardLayout();
     OknoGlowne oknoGlowne = new OknoGlowne();
@@ -19,7 +21,10 @@ public class Aplikacja extends JFrame {
     private KontoKlienta aktualneKonto = null;
     private List<KontoKlienta> listaKlientow = new ArrayList<>();
     private List<KontoPracownika> listaPracownikow = new ArrayList<>();
-    long klient=0;
+
+    public static Aplikacja getFrame() {
+        return frame;
+    }
 
     public Aplikacja() {
         Odczyt odczyt = new Odczyt();
@@ -310,6 +315,10 @@ public class Aplikacja extends JFrame {
         });
     }
 
+    public KontoKlienta getAktualneKonto() {
+        return aktualneKonto;
+    }
+
     private boolean kontoWybrane() {
         if (aktualneKonto != null) {
             return true;
@@ -319,15 +328,16 @@ public class Aplikacja extends JFrame {
         }
     }
 
-    private void wybierzKonto(Long nrKonta) {
+    public boolean wybierzKonto(Long nrKonta) {
         for (KontoKlienta kontoKlienta : listaKlientow) {
             if (kontoKlienta.getNrKonta() == nrKonta) {
                 aktualneKonto = new KontoKlienta(kontoKlienta);
                 setTitle("Nr Konta " + nrKonta);
-                return;
+                return true;
             }
         }
         JOptionPane.showMessageDialog(frame, "Brak klienta w systemie", "", JOptionPane.PLAIN_MESSAGE);
+        return false;
     }
 
     private void komendyZmienDane() {

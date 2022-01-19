@@ -1,26 +1,26 @@
 [
-    {
-        "NrKonta": 2,
-        "Imie": "Kajetan",
-        "PESEL": 252766,
-        "NrDowodu": "252766",
-        "Pieniadze": 420,
-        "Stan": true,
-        "Haslo": "IO",
-        "Nazwisko": "Wojciechowski",
-        "Karty": [],
-        "DataUrodzenia": "28.12.2021"
-    },
-    {
-        "NrKonta": 1,
-        "Imie": "Kacper",
-        "PESEL": 252724,
-        "NrDowodu": "252724",
-        "Pieniadze": 111111112,
-        "Stan": false,
-        "Haslo": "IO",
-        "Nazwisko": "Małkowski",
-        "Karty": [],
-        "DataUrodzenia": "28.12.2021"
-    }
+  {
+    "NrKonta": 1,
+    "Imie": "Kacper",
+    "PESEL": 252724,
+    "NrDowodu": "252724",
+    "Pieniadze": 111111112,
+    "Stan": false,
+    "Haslo": "IO",
+    "Nazwisko": "Małkowski",
+    "Karty": [],
+    "DataUrodzenia": "28.12.2021"
+  },
+  {
+    "NrKonta": 2,
+    "Imie": "Kajetan",
+    "PESEL": 252766,
+    "NrDowodu": "252766",
+    "Pieniadze": 420,
+    "Stan": true,
+    "Haslo": "IO",
+    "Nazwisko": "Wojciechowski",
+    "Karty": [],
+    "DataUrodzenia": "28.12.2021"
+  }
 ]

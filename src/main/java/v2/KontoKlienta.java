@@ -60,22 +60,24 @@ public class KontoKlienta extends DaneOsobowe {
         return karty;
     }
 
-    public void usunKarte(String nrKarty){
+    public void usunKarte(String nrKarty) {
         karty.removeIf(karta -> Objects.equals(karta.getNrKarty(), nrKarty));
     }
 
-    public void dodajKarte(String nrKarty, JFrame frame){
-        int CVC= (int) ((10000*Math.random())%1000);
+    public boolean dodajKarte(String nrKarty, JFrame frame) {
+        int CVC = (int) ((10000 * Math.random()) % 1000);
         Date dataWaznosci = new Date();
-        dataWaznosci.setYear(dataWaznosci.getYear()+5);
-        Karta karta=new Karta(nrKarty,CVC,dataWaznosci);
+        dataWaznosci.setYear(dataWaznosci.getYear() + 5);
+        Karta karta = new Karta(nrKarty, CVC, dataWaznosci);
         karty.add(karta);
-        String informacje ="Dodano kartę:\nNumer karty:"+nrKarty+ "\nCVC: "+CVC+"\nData ważności: "+dataWaznosci;
+        String informacje = "Dodano kartę:\nNumer karty:" + nrKarty + "\nCVC: " + CVC + "\nData ważności: " + dataWaznosci;
         JOptionPane.showMessageDialog(frame, informacje, "", JOptionPane.WARNING_MESSAGE);
+        return true;
     }
 
-    public void dodajKarte(Karta karta){
+    public boolean dodajKarte(Karta karta) {
         karty.add(karta);
+        return true;
     }
 
     public void setNrKonta(long nrKonta) {

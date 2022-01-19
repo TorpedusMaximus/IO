@@ -25,6 +25,7 @@ public class Odczyt {
         }
     }
 
+    @org.jetbrains.annotations.NotNull
     private JSONArray wczytajPlik(String plik) throws IOException {
         String dane = new String(Files.readAllBytes(Paths.get(plik)));
         return new JSONArray(dane);
@@ -45,7 +46,7 @@ public class Odczyt {
         }
     }
 
-    private void wczytajKlientow() throws IOException {
+    public void wczytajKlientow() throws IOException {
         JSONArray klienci = wczytajPlik("klienci.json");
         for (int i = 0; i < klienci.length(); i++) {
             JSONObject klient = klienci.getJSONObject(i);
@@ -55,7 +56,7 @@ public class Odczyt {
             int pesel = klient.getInt("PESEL");
             String nrDowodu = klient.getString("NrDowodu");
             long pieniadze = klient.getLong("Pieniadze");
-            boolean stan =klient.getBoolean("Stan");
+            boolean stan = klient.getBoolean("Stan");
             String haslo = klient.getString("Haslo");
             String nazwisko = klient.getString("Nazwisko");
             String data = klient.getString("DataUrodzenia");
